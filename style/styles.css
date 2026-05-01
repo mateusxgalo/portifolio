@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+}
+
+
+/* HEADER */
+
+header {
+    padding: 40px 20px;
+}
+
+.impacto {
+    margin: 10px 0;
+    color: #38bdf8;
+}
+
+
+/* BOTÕES */
+
+.acoes {
+    margin-top: 15px;
+}
+
+.btn {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background: #38bdf8;
+    color: black;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #0ea5e9;
+}
+
+
+/* SEÇÕES */
+
+section {
+    padding: 40px 20px;
+    animation: aparecer 1s ease-in-out;
+}
+
+
+/* ANIMAÇÃO */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* SKILLS */
+
+.skills-box span {
+    display: inline-block;
+    background: #1e293b;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+
+/* PROJETOS */
+
+.grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 10px;
+    width: 220px;
+    transition: 0.3s;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+    .grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
