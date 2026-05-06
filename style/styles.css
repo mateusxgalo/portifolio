@@ -120,3 +120,71 @@ section {
         align-items: center;
     }
 }
+
+.tabuada-container {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+    /* Ou a cor de fundo das suas seções */
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.tabuada-controles {
+    margin-bottom: 20px;
+}
+
+.tabuada-controles input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.tabuada-container {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    margin: 20px 0;
+    color: #333;
+    /* Força a cor do texto da seção para cinza escuro */
+}
+
+.tabuada-controles input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    color: #000;
+    /* Cor do número que você digita */
+}
+
+.resultado-tabuada table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 300px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.resultado-tabuada th,
+.resultado-tabuada td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    /* GARANTE QUE OS NÚMEROS FIQUEM ESCUROS */
+    color: #222 !important;
+    font-weight: bold;
+}
+
+.resultado-tabuada th {
+    background-color: #333;
+    color: #ffffff !important;
+    /* Cabeçalho continua branco para contrastar com o fundo escuro */
+}
+
+.resultado-tabuada tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
