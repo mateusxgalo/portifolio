@@ -1,91 +1,170 @@
+/* ============================================================
+   script.js — Portfólio Mateus Oliveira
+   ============================================================ */
+
+// ──────────────────────────────────────────────
+// DADOS DO PORTFÓLIO
+// ──────────────────────────────────────────────
 const NOME = "Mateus Oliveira";
 
-let tituloProfissional = "Desenvolvimento de Sistema / Análise de Dados / Teste de Software";
+const tituloProfissional =
+  "Desenvolvedor Front-End · Designer de UI/UX · Analista de Dados";
 
-let minhaBio = "Estudante de Desenvolvimento de Sistemas com foco em Front-End, análise de dados e testes de software. Busco oportunidades para aplicar meus conhecimentos na prática e evoluir como profissional.";
+const minhaBio =
+  "Estudante de Sistemas de Informação com foco em Front-End, UI/UX e " +
+  "análise de dados. Busco oportunidades para aplicar meus conhecimentos " +
+  "na prática e evoluir como profissional.";
 
-let anoFormatura = 2028;
+// Data de formatura
+const DATA_FORMATURA = new Date(2028, 11, 31, 23, 59, 59); // 31/12/2028
 
-let mesFormatura = 12;
-let diaFormatura = 31;
-
-let anoIngresso = 2026;
-let mesIngresso = 1;
-let diaIngresso = 1;
-
-const DATAATUAL = new Date();
-
-// Data atual
-let mesAtual = DATAATUAL.getMonth() + 1;
-let anoAtual = DATAATUAL.getFullYear();
-let diaAtual = DATAATUAL.getDate();
-
-let indefinido;
-let nulo = null;
-
-let curso = {
-    nome: "Sistemas de Informação",
-    semestre: 3,
-    disciplinaAtual: "Design focado no usuário"
+// Curso atual
+const curso = {
+  nome: "Sistemas de Informação",
+  semestre: 3,
+  disciplinaAtual: "Design focado no usuário",
+  anoIngresso: 2026,
+  mesIngresso: 1,
 };
 
-// Testes de tipo
-console.log(typeof nulo); // object
-console.log(typeof indefinido); // undefined
-console.log(typeof anoFormatura); // number
-console.log(typeof minhaBio); // string
-console.log(typeof tituloProfissional); // string
-console.log(typeof NOME); // string
-console.log(typeof curso); // object
+// ──────────────────────────────────────────────
+// CONTADOR REGRESSIVO — FORMATURA
+// ──────────────────────────────────────────────
+function atualizarContagem() {
+  const agora = new Date();
+  const diff = DATA_FORMATURA - agora;
 
-document.addEventListener("DOMContentLoaded", function() {
+  if (diff <= 0) {
+    // Já formou!
+    const els = ["cdMeses", "cdDias", "cdHoras", "statMeses"];
+    els.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = "0";
+    });
+    return;
+  }
 
-    const nome = document.getElementById("meuNome");
-    const titulo = document.getElementById("tituloProfissional");
-    const bio = document.getElementById("minhaBio");
-    const formatura = document.getElementById("anoFormatura");
+  const totalDias    = Math.floor(diff / 86400000);
+  const meses        = Math.floor(totalDias / 30);
+  const dias         = totalDias % 30;
+  const horas        = Math.floor((diff % 86400000) / 3600000);
 
-    // Cálculo do tempo restante
-    const dataFormatura = new Date(anoFormatura, mesFormatura - 1, diaFormatura);
-    const diferencaMs = dataFormatura - DATAATUAL;
+  const setEl = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  };
 
-    const diasTotais = Math.floor(diferencaMs / (1000 * 60 * 60 * 24));
-    const mesesRestantes = Math.floor(diasTotais / 30);
-    const diasRestantes = diasTotais % 30;
+  setEl("cdMeses",   meses);
+  setEl("cdDias",    dias);
+  setEl("cdHoras",   horas);
+  setEl("statMeses", meses + "m");
+}
 
-    document.getElementById("tempoRestanteParaFormatura").innerText =
-        `Tempo restante para formatura: ${mesesRestantes} meses e ${diasRestantes} dias`;
+// Atualiza imediatamente e depois a cada minuto
+atualizarContagem();
+setInterval(atualizarContagem, 60000);
 
-    // Inserindo dados no HTML
-    if (nome) nome.innerText = NOME;
-    if (titulo) titulo.innerText = tituloProfissional;
-    if (bio) bio.innerText = minhaBio;
-    if (formatura) formatura.innerText = "Formatura: " + anoFormatura;
+// ──────────────────────────────────────────────
+// ABAS DE HABILIDADES
+// ──────────────────────────────────────────────
 
+/**
+ * Exibe o painel de habilidades correspondente à aba clicada.
+ * @param {string} painel - ID do painel sem o prefixo "panel-"
+ * @param {HTMLElement} btn - Botão clicado
+ */
+function showSkills(painel, btn) {
+  // Remove active de todos os painéis e abas
+  document.querySelectorAll(".skills-panel").forEach((p) =>
+    p.classList.remove("active")
+  );
+  document.querySelectorAll(".skill-tab").forEach((t) =>
+    t.classList.remove("active")
+  );
+
+  // Ativa o painel e o botão corretos
+  const target = document.getElementById("panel-" + painel);
+  if (target) target.classList.add("active");
+  btn.classList.add("active");
+}
+
+// Torna a função global (chamada via onclick no HTML)
+window.showSkills = showSkills;
+
+// ──────────────────────────────────────────────
+// TABUADA INTERATIVA
+// ──────────────────────────────────────────────
+
+/**
+ * Gera a tabuada do número digitado e renderiza os cards.
+ */
+function gerarTabuada() {
+  const input       = document.getElementById("numTabuada");
+  const resultadoDiv = document.getElementById("resultadoTabuada");
+
+  resultadoDiv.innerHTML = "";
+
+  if (!input || input.value.trim() === "") {
+    resultadoDiv.innerHTML =
+      '<p style="color:var(--muted);font-size:13px">Digite um número primeiro!</p>';
+    return;
+  }
+
+  const numero = Number(input.value);
+
+  if (isNaN(numero)) {
+    resultadoDiv.innerHTML =
+      '<p style="color:var(--muted);font-size:13px">Por favor, insira um número válido.</p>';
+    return;
+  }
+
+  for (let i = 1; i <= 10; i++) {
+    const item = document.createElement("div");
+    item.className = "tab-item";
+    item.style.animationDelay = i * 0.05 + "s";
+    item.innerHTML = `
+      <span class="tab-op">${numero} × ${i} =</span>
+      <span class="tab-res">${numero * i}</span>
+    `;
+    resultadoDiv.appendChild(item);
+  }
+}
+
+// Torna a função global (chamada via onclick no HTML)
+window.gerarTabuada = gerarTabuada;
+
+// Permite pressionar Enter no input da tabuada
+document.addEventListener("DOMContentLoaded", function () {
+  const inputTabuada = document.getElementById("numTabuada");
+  if (inputTabuada) {
+    inputTabuada.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") gerarTabuada();
+    });
+  }
 });
 
-// FUNÇÃO FORA do DOMContentLoaded (melhor prática)
-function gerarTabuada() {
-    const num = document.getElementById("numTabuada").value;
-    const resultadoDiv = document.getElementById("resultadoTabuada");
+// ──────────────────────────────────────────────
+// ANIMAÇÕES DE SCROLL (Intersection Observer)
+// ──────────────────────────────────────────────
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
 
-    resultadoDiv.innerHTML = "";
+document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-    if (num === "") {
-        resultadoDiv.innerHTML = "<p>Por favor, digite um número!</p>";
-        return;
-    }
-
-    const numero = Number(num);
-    let tabela = "<table><thead><tr><th>Operação</th><th>Resultado</th></tr></thead><tbody>";
-
-    for (let i = 1; i <= 10; i++) {
-        tabela += `<tr>
-            <td>${numero} x ${i}</td>
-            <td>${numero * i}</td>
-        </tr>`;
-    }
-
-    tabela += "</tbody></table>";
-    resultadoDiv.innerHTML = tabela;
-}
+// ──────────────────────────────────────────────
+// LOGS DE DIAGNÓSTICO (apenas em desenvolvimento)
+// ──────────────────────────────────────────────
+console.log("=== Portfólio carregado ===");
+console.log("Nome:", NOME);
+console.log("Título:", tituloProfissional);
+console.log("Curso:", curso.nome, "— Semestre", curso.semestre);
+console.log("Disciplina atual:", curso.disciplinaAtual);
+console.log("Data de formatura:", DATA_FORMATURA.toLocaleDateString("pt-BR"));

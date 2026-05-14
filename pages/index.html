@@ -1,96 +1,391 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio | Mateus</title>
-
-    <link rel="stylesheet" href="../styles/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio | Mateus Oliveira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1 id="meuNome"></h1>
-    <h2 id="tituloProfissional"></h2>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">MO.</div>
+  <div class="nav-links">
+    <a href="#sobre">sobre</a>
+    <a href="#formacoes">formações</a>
+    <a href="#habilidades">habilidades</a>
+    <a href="#projetos">projetos</a>
+    <a href="#contato">contato</a>
+  </div>
+</nav>
 
-    <!-- FRASE DE IMPACTO -->
-    <p class="impacto">Transformando ideias em soluções digitais</p>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
 
-    <!-- BOTÕES -->
-    <div class="acoes">
-        <a href="#" class="btn">GitHub</a>
-        <a href="#" class="btn">LinkedIn</a>
-        <a href="#" class="btn">WhatsApp</a>
+  <div class="tag">
+    <span class="tag-dot"></span>
+    disponível para oportunidades
+  </div>
+
+  <h1 class="hero-name">Mateus<br><span>Oliveira</span></h1>
+
+  <p class="hero-title">
+    Desenvolvedor Front-End · Designer de UI/UX · Analista de Dados<br>
+    Transformando ideias em soluções digitais que fazem sentido para o usuário.
+  </p>
+
+  <div class="hero-ctas">
+    <a href="#projetos" class="btn-primary"><i class="ti ti-code"></i> Ver projetos</a>
+    <a href="#contato" class="btn-outline"><i class="ti ti-message"></i> Falar comigo</a>
+    <a href="#" class="btn-outline"><i class="ti ti-brand-github"></i> GitHub</a>
+    <a href="#" class="btn-outline"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">6</div>
+      <div class="stat-label">formações</div>
     </div>
-</header>
-
-<main>
-
-    <!-- SOBRE -->
-    <section class="sobre">
-        <h2>Sobre mim</h2>
-        <p id="minhaBio"></p>
-        <p id="anoFormatura"></p>
-
-        <!-- 🔥 ADICIONADO (faltava) -->
-        <p id="tempoRestanteParaFormatura"></p>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="skills">
-        <h2>Habilidades</h2>
-        <section class="tabuada-container">
-    <h2>Tabuada Interativa</h2>
-    <div class="tabuada-controles">
-        <input type="number" id="numTabuada" placeholder="Digite um número">
-        <button onclick="gerarTabuada()" class="btn">Gerar Tabuada</button>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">projetos</div>
     </div>
-    <div id="resultadoTabuada" class="resultado-tabuada">
-        </div>
+    <div class="stat">
+      <div class="stat-num" id="statMeses">—</div>
+      <div class="stat-label">para formatura</div>
+    </div>
+  </div>
 </section>
-        <div class="skills-box">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>Git</span>
-            <span>GitHub</span>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="reveal">
+    <div class="section-label">01 · sobre mim</div>
+    <div class="section-title">Quem sou eu</div>
+    <div class="sobre-grid">
+      <div>
+        <p class="sobre-bio">
+          Sou estudante de Sistemas de Informação com paixão por Front-End, UI/UX e análise de dados.
+          Já concluí formações em design de interface, experiência do usuário, desenvolvimento web e
+          teste de software — e continuo evoluindo a cada projeto.
+        </p>
+        <p class="sobre-bio">
+          Acredito que bom software é aquele que o usuário nem percebe que está usando:
+          intuitivo, bonito e funcional.
+        </p>
+        <div class="sobre-info">
+          <div class="info-item"><i class="ti ti-map-pin"></i><span>Brasil</span></div>
+          <div class="info-item"><i class="ti ti-school"></i><span>Sistemas de Informação — Semestre 3</span></div>
+          <div class="info-item"><i class="ti ti-calendar"></i><span>Formatura prevista: Dezembro de 2028</span></div>
+          <div class="info-item"><i class="ti ti-device-laptop"></i><span>Disciplina atual: Design focado no usuário</span></div>
         </div>
-    </section>
+      </div>
 
-    <!-- PROJETOS -->
-    <section class="projetos">
-        <h2>Meus Projetos</h2>
-
-        <div class="grid">
-
-            <div class="card">
-                <img src="../img/notebook.png" alt="Projeto sistema web">
-                <h3>Sistema Web</h3>
-                <p>Projeto com HTML, CSS e JS focado em interface.</p>
-                <a href="#">Ver código</a>
-            </div>
-
-            <div class="card">
-                <img src="../img/download.png" alt="Projeto dashboard">
-                <h3>Dashboard</h3>
-                <p>Visualização de dados simples.</p>
-                <a href="#">Ver código</a>
-            </div>
-
-            <div class="card">
-                <img src="../img/SISTEMA.png" alt="App simples">
-                <h3>App Simples</h3>
-                <p>Projeto de lógica e interação.</p>
-                <a href="#">Ver código</a>
-            </div>
-
+      <div>
+        <div class="countdown-card">
+          <div class="countdown-label">⏳ Tempo para formatura</div>
+          <div class="countdown-units">
+            <div class="unit"><span class="unit-num" id="cdMeses">—</span><div class="unit-lbl">meses</div></div>
+            <div class="unit"><span class="unit-num" id="cdDias">—</span><div class="unit-lbl">dias</div></div>
+            <div class="unit"><span class="unit-num" id="cdHoras">—</span><div class="unit-lbl">horas</div></div>
+          </div>
         </div>
-    </section>
+        <div class="curso-card">
+          <div class="curso-titulo">📚 Curso em andamento</div>
+          <div class="curso-detalhe"><i class="ti ti-point-filled ponto-verde"></i> Sistemas de Informação</div>
+          <div class="curso-detalhe mt6"><i class="ti ti-point-filled ponto-muted"></i> Ingressou em Janeiro de 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-</main>
+<!-- FORMAÇÕES -->
+<section id="formacoes" class="bg-alt">
+  <div class="reveal">
+    <div class="section-label">02 · formações</div>
+    <div class="section-title">Cursos & Certificações</div>
+    <div class="formacoes-grid">
 
-<!-- 🔥 USAR DEFER PRA GARANTIR CARREGAMENTO -->
-<script src="../script/script.js" defer></script>
+      <div class="formacao-item">
+        <div class="formacao-icon fi-purple"><i class="ti ti-palette"></i></div>
+        <div class="formacao-info">
+          <div class="formacao-nome">UI Design — Interfaces Visuais</div>
+          <div class="formacao-instituicao">Portfólio anterior · Design de componentes e layouts</div>
+        </div>
+        <span class="formacao-badge badge-concluido"><i class="ti ti-check"></i> Concluído</span>
+      </div>
 
+      <div class="formacao-item">
+        <div class="formacao-icon fi-blue"><i class="ti ti-user-heart"></i></div>
+        <div class="formacao-info">
+          <div class="formacao-nome">UX Design — Experiência do Usuário</div>
+          <div class="formacao-instituicao">Portfólio anterior · Pesquisa, personas e jornadas</div>
+        </div>
+        <span class="formacao-badge badge-concluido"><i class="ti ti-check"></i> Concluído</span>
+      </div>
+
+      <div class="formacao-item">
+        <div class="formacao-icon fi-green"><i class="ti ti-brand-javascript"></i></div>
+        <div class="formacao-info">
+          <div class="formacao-nome">Desenvolvimento Web — HTML, CSS & JavaScript</div>
+          <div class="formacao-instituicao">Portfólio anterior · Front-End responsivo e interativo</div>
+        </div>
+        <span class="formacao-badge badge-concluido"><i class="ti ti-check"></i> Concluído</span>
+      </div>
+
+      <div class="formacao-item">
+        <div class="formacao-icon fi-red"><i class="ti ti-bug"></i></div>
+        <div class="formacao-info">
+          <div class="formacao-nome">Teste de Software — QA & Qualidade</div>
+          <div class="formacao-instituicao">Portfólio anterior · Testes manuais e automatizados</div>
+        </div>
+        <span class="formacao-badge badge-concluido"><i class="ti ti-check"></i> Concluído</span>
+      </div>
+
+      <div class="formacao-item">
+        <div class="formacao-icon fi-gold"><i class="ti ti-chart-bar"></i></div>
+        <div class="formacao-info">
+          <div class="formacao-nome">Análise de Dados — Fundamentos</div>
+          <div class="formacao-instituicao">Portfólio anterior · Lógica e visualização de dados</div>
+        </div>
+        <span class="formacao-badge badge-concluido"><i class="ti ti-check"></i> Concluído</span>
+      </div>
+
+      <div class="formacao-item">
+        <div class="formacao-icon fi-blue"><i class="ti ti-school"></i></div>
+        <div class="formacao-info">
+          <div class="formacao-nome">Sistemas de Informação — Graduação</div>
+          <div class="formacao-instituicao">Faculdade · Semestre 3 de 8 · Previsão: Dez/2028</div>
+        </div>
+        <span class="formacao-badge badge-andamento"><i class="ti ti-loader"></i> Em andamento</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HABILIDADES -->
+<section id="habilidades">
+  <div class="reveal">
+    <div class="section-label">03 · habilidades</div>
+    <div class="section-title">O que sei fazer</div>
+
+    <div class="skills-tabs">
+      <button class="skill-tab active" onclick="showSkills('frontend', this)">Front-End</button>
+      <button class="skill-tab" onclick="showSkills('design', this)">UI/UX Design</button>
+      <button class="skill-tab" onclick="showSkills('dados', this)">Dados & QA</button>
+      <button class="skill-tab" onclick="showSkills('tools', this)">Ferramentas</button>
+    </div>
+
+    <!-- Front-End -->
+    <div id="panel-frontend" class="skills-panel active">
+      <div class="skills-grid">
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">HTML5</span><span class="skill-pct">90%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">CSS3</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">JavaScript</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:75%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Responsividade</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Animações CSS</span><span class="skill-pct">70%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:70%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Git & GitHub</span><span class="skill-pct">70%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:70%"></div></div></div>
+      </div>
+    </div>
+
+    <!-- UI/UX Design -->
+    <div id="panel-design" class="skills-panel">
+      <div class="skills-grid">
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">UI Design</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">UX Research</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:75%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Prototipagem</span><span class="skill-pct">78%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:78%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Personas & Jornadas</span><span class="skill-pct">72%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:72%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Design Systems</span><span class="skill-pct">65%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:65%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Acessibilidade</span><span class="skill-pct">65%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:65%"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Dados & QA -->
+    <div id="panel-dados" class="skills-panel">
+      <div class="skills-grid">
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Análise de Dados</span><span class="skill-pct">70%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:70%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Visualização</span><span class="skill-pct">68%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:68%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Testes Manuais</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:75%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Lógica de Programação</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Qualidade de Software</span><span class="skill-pct">70%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:70%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Documentação</span><span class="skill-pct">72%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:72%"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Ferramentas -->
+    <div id="panel-tools" class="skills-panel">
+      <div class="skills-grid">
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">VS Code</span><span class="skill-pct">90%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Figma</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:75%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">GitHub</span><span class="skill-pct">70%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:70%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Notion</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Canva</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div></div>
+        <div class="skill-card"><div class="skill-top"><span class="skill-name">Excel / Sheets</span><span class="skill-pct">72%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:72%"></div></div></div>
+      </div>
+    </div>
+
+    <!-- TABUADA INTERATIVA -->
+    <div class="tabuada-section">
+      <div class="tabuada-header">
+        <i class="ti ti-calculator icon-accent icon-lg" aria-hidden="true"></i>
+        <h3>Tabuada Interativa</h3>
+      </div>
+      <div class="tabuada-controls">
+        <input type="number" id="numTabuada" placeholder="Digite um número" min="1" max="999">
+        <button class="btn-tabuada" onclick="gerarTabuada()">
+          <i class="ti ti-math-function"></i> Gerar Tabuada
+        </button>
+      </div>
+      <div id="resultadoTabuada" class="tabuada-result"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETOS -->
+<section id="projetos" class="bg-alt">
+  <div class="reveal">
+    <div class="section-label">04 · projetos</div>
+    <div class="section-title">Meu trabalho</div>
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-img">🖥️</div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag">HTML</span>
+            <span class="proj-tag">CSS</span>
+            <span class="proj-tag">JS</span>
+          </div>
+          <div class="proj-name">Sistema Web</div>
+          <div class="proj-desc">Interface completa com foco em usabilidade e design responsivo para diferentes dispositivos.</div>
+          <div class="proj-links">
+            <a href="#" class="proj-link"><i class="ti ti-brand-github"></i> Código</a>
+            <a href="#" class="proj-link"><i class="ti ti-external-link"></i> Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-img">📊</div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag">Dados</span>
+            <span class="proj-tag">CSS Grid</span>
+            <span class="proj-tag">Charts</span>
+          </div>
+          <div class="proj-name">Dashboard Analítico</div>
+          <div class="proj-desc">Visualização de dados com gráficos e métricas, aplicando princípios de análise de dados.</div>
+          <div class="proj-links">
+            <a href="#" class="proj-link"><i class="ti ti-brand-github"></i> Código</a>
+            <a href="#" class="proj-link"><i class="ti ti-external-link"></i> Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-img">📱</div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag">UI/UX</span>
+            <span class="proj-tag">Figma</span>
+            <span class="proj-tag">JS</span>
+          </div>
+          <div class="proj-name">App UI — Protótipo</div>
+          <div class="proj-desc">Projeto de interface mobile com fluxo de usuário definido via UX e implementado em código.</div>
+          <div class="proj-links">
+            <a href="#" class="proj-link"><i class="ti ti-brand-github"></i> Código</a>
+            <a href="#" class="proj-link"><i class="ti ti-external-link"></i> Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-img">🎨</div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag">Portfólio</span>
+            <span class="proj-tag">Design</span>
+            <span class="proj-tag">Animação</span>
+          </div>
+          <div class="proj-name">Portfólio Pessoal</div>
+          <div class="proj-desc">Este portfólio — construído do zero com HTML, CSS e JS, com foco em design e UX.</div>
+          <div class="proj-links">
+            <a href="#" class="proj-link"><i class="ti ti-brand-github"></i> Código</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="reveal">
+    <div class="section-label">05 · contato</div>
+    <div class="section-title">Vamos conversar?</div>
+    <div class="contato-grid">
+      <div>
+        <p class="contato-text">
+          Estou em busca de oportunidades para aplicar meus conhecimentos na prática,
+          seja em estágio, freelance ou projetos colaborativos. Se tiver uma ideia ou
+          uma vaga, me manda uma mensagem!
+        </p>
+        <p class="contato-text">Respondo rápido 🚀</p>
+      </div>
+      <div class="contato-links">
+        <a href="#" class="contato-link">
+          <i class="ti ti-brand-whatsapp"></i>
+          <div class="contato-link-info">
+            <div class="contato-link-label">WhatsApp</div>
+            <div class="contato-link-value">Falar agora</div>
+          </div>
+          <i class="ti ti-arrow-right icon-muted icon-sm"></i>
+        </a>
+        <a href="#" class="contato-link">
+          <i class="ti ti-brand-linkedin"></i>
+          <div class="contato-link-info">
+            <div class="contato-link-label">LinkedIn</div>
+            <div class="contato-link-value">linkedin.com/in/mateus</div>
+          </div>
+          <i class="ti ti-arrow-right icon-muted icon-sm"></i>
+        </a>
+        <a href="#" class="contato-link">
+          <i class="ti ti-brand-github"></i>
+          <div class="contato-link-info">
+            <div class="contato-link-label">GitHub</div>
+            <div class="contato-link-value">github.com/mateus</div>
+          </div>
+          <i class="ti ti-arrow-right icon-muted icon-sm"></i>
+        </a>
+        <a href="mailto:mateus@email.com" class="contato-link">
+          <i class="ti ti-mail"></i>
+          <div class="contato-link-info">
+            <div class="contato-link-label">Email</div>
+            <div class="contato-link-value">mateus@email.com</div>
+          </div>
+          <i class="ti ti-arrow-right icon-muted icon-sm"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-text">© 2026 <span class="footer-accent">Mateus Oliveira</span> — Portfólio pessoal</div>
+  <div class="footer-text">Feito com <span class="footer-accent">HTML · CSS · JS</span> 💻</div>
+</footer>
+
+<script src="script.js" defer></script>
 </body>
 </html>
