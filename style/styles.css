@@ -1,4 +1,4 @@
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --bg: #04080f;
@@ -421,8 +421,6 @@
     .cd-sep { font-size: 1.2rem; color: var(--muted); align-self: flex-start; margin-top: 8px; }
 
     /* ── SKILLS ────────────────────────────────────── */
-    #habilidades { }
-
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -598,8 +596,6 @@
     .project-link-ghost:hover { color: var(--text); }
 
     /* ── TIMELINE / EDUCATION ──────────────────────── */
-    #educacao { }
-
     .timeline {
       position: relative; padding-left: 32px;
     }
